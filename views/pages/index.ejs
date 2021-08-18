@@ -8,12 +8,27 @@
 
   <%- include ("../partials/nav.ejs") %>
 
+<% if (locals.error) { %>
+  <div class="alert alert-warning" role="alert">
+    <%= error.message %>
+  </div>
+<% } %>
+
 <div class="jumbotron text-center">
   <div class="container">
     <h1>Website to epub</h1>
     <p>Convert to HTML website to epub</p>
   </div>
 </div>
+<div class="container">
+  <form action="/epub" method="GET">
+    <div class="form-inline text-center">
+      <input type="url" class="form-control" name="src_url" placeholder="URL">
+      <button type="submit" class="btn btn-success">Get ePub</button>
+    </div>
+  </form>
+</div>
+
 
 
 </body>

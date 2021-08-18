@@ -28,7 +28,8 @@ express()
   .get('/epub', async (req, res) => {
     var url_list = req.query.src_url
     if (!url_list) {
-      res.status(400).send("Missing src_url").end()
+      res.render('pages/index', {error: Error("No URL provided.")})
+      return
     }
     if (!url_list.isArray) {
       url_list = [url_list]
@@ -41,10 +42,10 @@ express()
         {input: prefix + (await Promise.all(url_list.map(article_for))).join("")}
       );
       res.attachment('reading_list.epub');
-      res.send(stdout).end();
+      res.send(stdout).end()
     }
     catch(error) {
-      res.status(400).send(error.message).end()
+      res.render('pages/index', {error: error})
     }
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
