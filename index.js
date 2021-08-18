@@ -35,7 +35,7 @@ express()
     }
     try {
       const stdout = execFileSync(
-        'pandoc', ['-f', 'html', '-t', 'epub', '-o', '-'],
+        'pandoc', ['-f', 'html', '-t', 'epub', '--template', './default.epub3', '--abbreviations', './abbreviations', '--css', './epub.css', '-o', '-'],
         // TODO: sanatize input
         // TODO: Fix porcessing of multiple urls in list
         {input: prefix + (await Promise.all(url_list.map(article_for))).join("")}
