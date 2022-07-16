@@ -7,7 +7,7 @@
         "preserveConstEnums": true,
         "outDir": "dist"
     },
-    "include": [
+    "files": [
         "index.ts"
     ],
     "exclude": [

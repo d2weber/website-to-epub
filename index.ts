@@ -1,11 +1,11 @@
-const { execFileSync } = require('child_process');
-const express = require('express')
-const path = require('path')
+import { execFileSync } from 'child_process';
+import express from 'express';
+import path from 'path';
 const PORT = process.env.PORT || 5000
 const { Readability } = require('@mozilla/readability');
 const { JSDOM } = require("jsdom");
 
-import { Request, RequestRanges, ParamsArray, Response } from 'express-serve-static-core';
+import { Request, Response } from 'express';
 
 const article_for = async function (url: string) {
   try {
