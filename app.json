@@ -1,10 +1,9 @@
 {
   "name": "Website to ePub",
   "description": "Convert HTML websites to ePub",
-  "keywords": ["pub", "convert"],
+  "keywords": ["epub", "convert"],
   "repository": "https://github.com/d2weber/website-to-epub",
   "buildpacks": [
-    { "url": "https://github.com/heroku/heroku-buildpack-apt" },
     { "url": "heroku/nodejs" }
   ]
 }
