@@ -14,7 +14,7 @@ const article_for = async function (url) {
     return ('<h1>' + article.title + '</h1>' + article.content);
   }
   catch(e) {
-    throw Error(`Error occured while processing: "${url}". Error message: "${e.message}"`)
+    throw Error(`Error occurred while processing: "${url}". Error message: "${e.message}"`)
   }
 }
 
@@ -37,8 +37,8 @@ express()
     try {
       const stdout = execFileSync(
         'pandoc', ['-f', 'html', '-t', 'epub', '--template', './default.epub3', '--abbreviations', './abbreviations', '--css', './epub.css', '-o', '-'],
-        // TODO: sanatize input
-        // TODO: Fix porcessing of multiple urls in list
+        // TODO: sanative input
+        // TODO: Fix processing of multiple urls in list
         {input: prefix + (await Promise.all(url_list.map(article_for))).join("")}
       );
       res.attachment('reading_list.epub');
