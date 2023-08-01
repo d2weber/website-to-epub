@@ -5,10 +5,10 @@ This web-application takes a URL and converts the website to a downloadable epub
 
 ## Start server
 ```bash
-npm start
+npm run start
 ```
 
 ## Dev server
 ```bash
-npm watch
+npm run watch
 ```
